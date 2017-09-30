@@ -1,6 +1,6 @@
 rootProject.name = 'spring-cloud-demos'
 
-
+include 'eureka-server'
 include "gateway"
 include "hystrix"
 include "config"
