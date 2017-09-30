@@ -5,4 +5,3 @@ include "gateway"
 include "hystrix"
 include "config"
 include "dashboard"
-include 'spring5'
