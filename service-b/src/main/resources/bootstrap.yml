@@ -1,13 +1,13 @@
 spring:
   application:
-    name: service-a
+    name: service-b
   profiles:
     active: default
 eureka:
   instance:
     prefer-ip-address: true
 #    health-check-url-path: /health
-    appname: service-a
+    appname: service-b
   client:
     service-url:
       default-zone: http://localhost:8761/eureka
