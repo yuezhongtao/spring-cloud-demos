@@ -8,11 +8,10 @@ eureka:
     prefer-ip-address: true
 #    health-check-url-path: /health
     appname: service-a
+    instance-id: service-a
   client:
     service-url:
       default-zone: http://localhost:8761/eureka
 #      default-zone: http://user:password@localhost:8761/eureka
     register-with-eureka: true
-    fetch-registry: false
-
-
+    fetch-registry: true

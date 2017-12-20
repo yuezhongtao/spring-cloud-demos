@@ -14,7 +14,7 @@ public class TestController {
     @RequestMapping(value = "/b",method = RequestMethod.GET)
     public @ResponseBody Map<String,Object> test(){
         Map<String,Object> map = Maps.newHashMap();
-        map.put("result","success");
+        map.put("result","success-b");
         return map;
     }
 }
