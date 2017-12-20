@@ -3,6 +3,8 @@ spring:
     name: service-b
   profiles:
     active: default
+  zipkin:
+    base-url: http://localhost:10010
 eureka:
   instance:
     prefer-ip-address: false
@@ -15,6 +17,3 @@ eureka:
 #      default-zone: http://user:password@localhost:8761/eureka
     register-with-eureka: true
     fetch-registry: true
-
-
-
