@@ -1,6 +1,10 @@
 spring:
   application:
     name: gateway
+  profiles:
+    active: default
+  zipkin:
+    base-url: http://localhost:10010
 eureka:
   instance:
     prefer-ip-address: true

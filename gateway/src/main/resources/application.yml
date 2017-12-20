@@ -1,0 +1,14 @@
+server:
+  port: 8090
+zuul:
+  host:
+    max-total-connections: 100
+    max-per-route-connections: 10
+  routes:
+#    service-a:
+#      path: /test/a
+    test:
+      path: /test/a
+      service-id: service-a
+#      path: /test/b
+#      url: http://localhost:8082/test/b
