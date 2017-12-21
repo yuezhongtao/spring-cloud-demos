@@ -21,8 +21,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     private ApplicationContext context;
     @Autowired
     private MyUserDetailService myUserDetailService;
-    @Autowired
-    private AuthenticationManagerBuilder
 
 
     @Override
@@ -34,13 +32,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        DataSource dataSource = context.getBean(DataSource.class);
+//        DataSource dataSource = context.getBean(DataSource.class);
         auth.userDetailsService(myUserDetailService);
-        auth.authenticationProvider();
-        auth.jdbcAuthentication()
-                .dataSource(dataSource)
-                .withUser("user").password("password").roles("USER").and()
-                .withUser("admin").password("password").roles("USER", "ADMIN");
+//        auth.jdbcAuthentication()
+//                .dataSource(dataSource)
+//                .withUser("user").password("password").roles("USER").and()
+//                .withUser("admin").password("password").roles("USER", "ADMIN");
     }
 
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        super.configure(auth);
+    }
 }
