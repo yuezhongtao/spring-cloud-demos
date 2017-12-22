@@ -33,11 +33,12 @@ public class MyUserDetail implements UserDetails {
     @Column
     private boolean enabled;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private Set<MyGrantedAuthority> authorities;
 
-
+    public MyUserDetail() {
+    }
 
     public Long getId() {
         return id;

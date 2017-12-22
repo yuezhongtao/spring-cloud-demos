@@ -25,7 +25,7 @@ spring:
       validation-query: SELECT 1
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
       dialect: org.hibernate.dialect.MySQL5Dialect
     show-sql: true
     properties:
