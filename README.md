@@ -5,3 +5,5 @@
 	port:
 	eureka: 8761
 	
+	-Xms256M -Xmx512M -XX:MetaspaceSize=128M -XX:MaxMetaspaceSize=256M
+	
