@@ -38,8 +38,11 @@ public class TestAuthorizationConfig extends AuthorizationServerConfigurerAdapte
     @Autowired
     private AuthenticationManager am;
 
+    private static String REALM="MY_OAUTH_REALM";
+
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
+        security.realm(REALM);
         System.out.println("------");
     }
 
@@ -54,7 +57,7 @@ public class TestAuthorizationConfig extends AuthorizationServerConfigurerAdapte
         endpoints.userDetailsService(this.userDetailService)
         .tokenStore(getJdbcTokenStore())
         .approvalStore(approvalStore())
-        .tokenGranter(tokenGranter());
+        .tokenGranter(tokenGranter())
         ;
     }
 
@@ -97,6 +100,8 @@ public class TestAuthorizationConfig extends AuthorizationServerConfigurerAdapte
         DefaultTokenServices defaultTokenServices = new DefaultTokenServices();
         defaultTokenServices.setTokenStore(getJdbcTokenStore());
         defaultTokenServices.setReuseRefreshToken(true);
+        defaultTokenServices.setAccessTokenValiditySeconds(30);
+        defaultTokenServices.setAccessTokenValiditySeconds(120);
         return defaultTokenServices;
     }
 
