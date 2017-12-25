@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices;
@@ -28,16 +29,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
-        http.authorizeRequests().antMatchers("/login","/oauth/token").permitAll().and()
+        http.authorizeRequests().antMatchers("/login","/oauth/token","/test/**").permitAll().and()
                 .authorizeRequests().anyRequest().hasRole("USER");
         //super.configure(http);
     }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-//        DataSource dataSource = context.getBean(DataSource.class);
-        System.out.println("test");
         auth.userDetailsService(myUserDetailService);
+        auth.authenticationProvider(rememberMeAuthenticationProvider());
 //        auth.jdbcAuthentication()
 //                .dataSource(dataSource)
 //                .withUser("user").password("password").roles("USER").and()
@@ -49,10 +49,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 //        super.configure(auth);
 //    }
 
-    @Bean
+    @Bean// browser remember me
     PersistentTokenBasedRememberMeServices persistentTokenBasedRememberMeServices(){
         PersistentTokenBasedRememberMeServices p =
                 new PersistentTokenBasedRememberMeServices("SpringRocks",myUserDetailService,new JdbcTokenRepositoryImpl());
+        p.setCookieName("JSESSIONID");
         return p;
     }
 

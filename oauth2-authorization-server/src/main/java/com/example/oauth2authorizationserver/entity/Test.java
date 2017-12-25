@@ -1,9 +1,6 @@
 package com.example.oauth2authorizationserver.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Table(name = "test")
@@ -12,6 +9,9 @@ public class Test implements Serializable{
     @Id
     @GeneratedValue
     private Long id;
+
+    @Column(name = "enum_test")
+    private TestEnum enumTest;
 
     public Test() {
     }
@@ -22,5 +22,13 @@ public class Test implements Serializable{
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public TestEnum getEnumTest() {
+        return enumTest;
+    }
+
+    public void setEnumTest(TestEnum enumTest) {
+        this.enumTest = enumTest;
     }
 }
