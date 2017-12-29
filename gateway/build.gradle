@@ -38,6 +38,7 @@ dependencies {
 	compile('org.springframework.cloud:spring-cloud-starter-ribbon')
 	compile 'org.springframework.cloud:spring-cloud-starter-sleuth'
 	compile 'org.springframework.cloud:spring-cloud-sleuth-zipkin'
+	compile group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.9.1'
 
 //	compile('org.springframework.boot:spring-boot-starter-security')
 //	compile('org.springframework.boot:spring-boot-starter-redis')

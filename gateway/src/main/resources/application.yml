@@ -12,3 +12,7 @@ zuul:
       service-id: service-a
 #      path: /test/b
 #      url: http://localhost:8082/test/b
+
+ribbon:
+  eureka:
+    enabled: false
