@@ -1,0 +1,23 @@
+server:
+  port: 7777
+security:
+  oauth2:
+    resource:
+      token-info-uri: http://localhost:8888/oauth/check_token
+    client:
+      token-name: access_token
+  user:
+    name: user
+    password: password
+eureka:
+  instance:
+    appname: oauth2-resource-server
+    instance-id: oauth2-resource-server
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+logging:
+  level: debug
+

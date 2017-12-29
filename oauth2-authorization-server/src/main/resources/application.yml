@@ -38,6 +38,6 @@ server:
   port: 8888
 security:
   ignored: /login
-  user:
-    name: user
-    password: password
+#  user:
+#    name: user
+#    password: password
