@@ -3,6 +3,7 @@ package com.example.oauth2authorizationserver.controller;
 import com.example.oauth2authorizationserver.dto.RespDTO;
 import com.example.oauth2authorizationserver.entity.Test;
 import com.example.oauth2authorizationserver.entity.TestEnum;
+import com.example.oauth2authorizationserver.entity.TestEnum2;
 import com.example.oauth2authorizationserver.repository.TestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,10 +24,11 @@ public class TestController {
     RespDTO save(){
         Test test = new Test();
         test.setEnumTest(TestEnum.hehe2);
+        test.setEnum2(TestEnum2.TT2);
         testRepository.save(test);
         Test test2 = testRepository.findOne(1L);
         System.out.println(test2.getEnumTest());
-        return new RespDTO("success");
+        return new RespDTO("success",test2);
     }
 
 }

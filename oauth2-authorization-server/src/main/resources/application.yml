@@ -11,7 +11,7 @@ spring:
   application:
     name: oauth2-server
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     password: mysql
     username: root
     url: jdbc:mysql://127.0.0.1:3306/oauth2db
