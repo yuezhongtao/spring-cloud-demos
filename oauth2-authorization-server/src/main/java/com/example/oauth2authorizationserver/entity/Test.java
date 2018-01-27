@@ -1,6 +1,5 @@
 package com.example.oauth2authorizationserver.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
